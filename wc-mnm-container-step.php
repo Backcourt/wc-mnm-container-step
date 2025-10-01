@@ -30,7 +30,7 @@ if ( ! class_exists( 'WC_MNM_Container_Step' ) ) :
 		 * constants
 		 */
 		const VERSION         = '2.0.2';
-		const REQ_MNM_VERSION = '2.6.0';
+		const REQ_MNM_VERSION = '2.8.0';
 
 		/**
 		 * WC_MNM_Container_Step Constructor
@@ -40,7 +40,7 @@ if ( ! class_exists( 'WC_MNM_Container_Step' ) ) :
 		 */
 		public static function init() {
 
-			// Quietly quit if MNM is not active.
+			// Quietly quit if Mix and Match is not active or below required version.
 			if ( ! function_exists( 'wc_mix_and_match' ) || version_compare( wc_mix_and_match()->version, self::REQ_MNM_VERSION ) < 0 ) {
 				return false;
 			}
