@@ -1,5 +1,5 @@
 {
-  "title": "WooCommerce Mix and Match Products - Container Step",
+  "title": "WC Mix and Match Products - Container Step",
   "name": "wc-mnm-container-step",
   "version": "2.0.2",
   "description": "Require Mix and Match container size to be in quantity multiples, ie: 6,12,18,etc.",
