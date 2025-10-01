@@ -136,18 +136,12 @@ if ( ! class_exists( 'WC_MNM_Container_Step' ) ) :
 		/**
 		 * Server-side validation
 		 * 
-		 * @param bool $is_valid
+		 * @param WP_Error $errors
 		 * @param obj WC_Product_Mix_and_Match $product
 		 * @param obj WC_Mix_and_Match_Stock_Manager $mnm_stock
-		 * @return  bool 
+		 * @return WP_Error 
 		 */
-		public static function validation( $valid, $product, $mnm_stock ) {
-
-			$hook = current_filter();
-
-			$hook    = str_replace( 'wc_mnm_', '', $hook );
-			$hook    = str_replace( '_container_validation', '', $hook );
-			$context = str_replace( '_', '-', $hook );
+		public static function validation( $errors, $product, $mnm_stock ) {
 
 			if ( $product->get_meta( '_mnm_container_step', true ) && $product->get_min_container_size() !== $product->get_max_container_size() ) {     
 
@@ -157,22 +151,13 @@ if ( ! class_exists( 'WC_MNM_Container_Step' ) ) :
 				// Validate the step modulus.
 				if ( 0 !== $total_qty % $step ) {
 
-					$reason = sprintf( esc_html__( 'The total quantity of selected products must be a multiple of %d.', 'wc-mnm-container-step' ), $step );
-				
-					if ( 'add-to-cart' === $context ) {
-						// translators: %1$s product title. %2$s Error reason.
-						$error_message = sprintf( _x( '&quot;%1$s&quot; cannot be added to the cart as configured. %2$s', 'wc-mnm-container-step' ), $product->get_title(), $reason );
-					} else {
-						// translators: %1$s product title. %2$s Error reason.
-						$error_message = sprintf( _x( '&quot;%1$s&quot; cannot be purchased as configured. %2$s', 'wc-mnm-container-step' ), $product->get_title(), $reason );
-					}
-
-					throw new Exception( $error_message );
+					$notice = sprintf( esc_html__( 'The total quantity of selected products must be a multiple of %d.', 'wc-mnm-container-step' ), $step );
+					$errors->add( 'wc_mnm_configuration_invalid_step', $notice );
 				}
 
 			}
 
-			return $valid;
+			return $errors;
 		}
 
 		/*-----------------------------------------------------------------------------------*/
