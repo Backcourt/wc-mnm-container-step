@@ -11,9 +11,7 @@
  * Text Domain: wc-mnm-container-step
  * Domain Path: /languages
  * 
- * GitHub Plugin URI: kathyisawesome/wc-mnm-grouped
- * GitHub Plugin URI: https://github.com/kathyisawesome/wc-mnm-grouped
- * Release Asset: true
+ * Update URI: https://www.backcourt.io/
  *
  * Copyright: © 2020 Kathy Darling
  * License: GNU General Public License v3.0
