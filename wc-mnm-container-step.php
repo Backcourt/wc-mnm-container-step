@@ -2,7 +2,7 @@
 /**
  * Plugin Name: WC Mix and Match - Container Step
  * Plugin URI: https://github.com/kathyisawesome/wc-mnm-container-step
- * Version: 2.0.2
+ * Version: 2.1.0
  * Description: Require container size to be in quantity mnultiples, ie: 12,16,20,etc. 
  * Author: Kathy Darling
  * Author URI: http://kathyisawesome.com/
